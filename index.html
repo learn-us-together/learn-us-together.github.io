@@ -36,9 +36,11 @@
 	//Bmob.initialize("Application ID", "REST API Key");
     Bmob.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b", "15c728de9831a0a1e98b10fc1a31c06c");
 	
-	var TestObject = Bmob.Object.extend("TestObject");
-    var testObject = new TestObject();
-      testObject.save({foo: "bar"}, {
+  function print(){  
+    var a=myform.name.value;  
+    var GameScore = Bmob.Object.extend("GameScore");
+    var gameScore = new GameScore();
+     gameScore.save({name: a}, {
       success: function(object) {
         $(".success").show();
       },
@@ -46,12 +48,7 @@
         $(".error").show();
       }
     });
-	
-  function print(){  
-    var a=myform.name.value;  
-    var GameScore = Bmob.Object.extend("GameScore");
-    var gameScore = new GameScore();
-     gameScore.save({name: a}, {
+      gameScore.save({captcha: "12390"}, {
       success: function(object) {
         $(".success").show();
       },
