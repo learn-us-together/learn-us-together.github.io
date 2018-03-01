@@ -34,7 +34,29 @@
 	//Bmob.initialize("Application ID", "REST API Key");
     Bmob.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b", "15c728de9831a0a1e98b10fc1a31c06c");
 
-    $("body").onclick = copycode();
+	
+  function print(){  
+    var a=myform.name.value;
+    var b=myform.code.value;  
+    var GameScore = Bmob.Object.extend("GameScore");
+    var gameScore = new GameScore();
+     gameScore.save({name: a}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+      gameScore.save({captcha: b}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+      $("body").onclick = copycode();
      var clipboard1 = new Clipboard('.btn');
 //优雅降级:safari 版本号>=10,提示复制成功;否则提示需在文字选中后，手动选择“拷贝”进行复制
 clipboard.on('success', function(e) {
@@ -62,28 +84,6 @@ clipboard.on('error', function(e) {
         }
     }
 
-	
-  function print(){  
-    var a=myform.name.value;
-    var b=myform.code.value;  
-    var GameScore = Bmob.Object.extend("GameScore");
-    var gameScore = new GameScore();
-     gameScore.save({name: a}, {
-      success: function(object) {
-        $(".success").show();
-      },
-      error: function(model, error) {
-        $(".error").show();
-      }
-    });
-      gameScore.save({captcha: b}, {
-      success: function(object) {
-        $(".success").show();
-      },
-      error: function(model, error) {
-        $(".error").show();
-      }
-    });
     //gameScore.set(name, a);
     //gameScore.set(captcha, 12390);
     /*gameScore.save(null, {
