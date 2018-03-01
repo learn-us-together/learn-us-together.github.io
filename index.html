@@ -14,7 +14,7 @@
 <body>
   <div id="copy" data-clipboard-text="NVJiQ16834">
     <h1 style="text-align:center;font-size:30px"><font face="verdana">请在淘宝购买后填补以下信息</font></h1>
-    <p style="text-align:center;font-size:30px"><br><br> 
+    <p style="text-align:center;font-size:30px"><br> 
       <form name="myform">
       <h2 style="text-align:center;font-size:15px"><font face="verdana">学生姓名</font></h2>  
        <input type="text" name="name" id="nn" /><br>
@@ -35,11 +35,14 @@
     Bmob.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b", "15c728de9831a0a1e98b10fc1a31c06c");
 
 	
-  function print(){  
+  function print(){
     var a=myform.name.value;
-    var b=myform.code.value;  
-    var GameScore = Bmob.Object.extend("GameScore");
-    var gameScore = new GameScore();
+    var b=myform.code.value;
+    if (a.length == 0 || b.length == 0){  
+        alert("请输入学生姓名和验证码");
+    }else{
+      var GameScore = Bmob.Object.extend("GameScore");
+      var gameScore = new GameScore();
      gameScore.save({name: a}, {
       success: function(object) {
         $(".success").show();
@@ -82,6 +85,8 @@ clipboard.on('error', function(e) {
                 //alert("请点击OK／确定/关闭");
             });
         }
+    }
+
     }
 
     //gameScore.set(name, a);
