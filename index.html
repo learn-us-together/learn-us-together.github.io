@@ -51,16 +51,24 @@
     var a=myform.name.value;  
     var GameScore = Bmob.Object.extend("GameScore");
     var gameScore = new GameScore();
-    gameScore.set(name, a);
-    gameScore.set(captcha, 12390);
-    gameScore.save(null, {
+     gameScore.save({name: a}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+    //gameScore.set(name, a);
+    //gameScore.set(captcha, 12390);
+    /*gameScore.save(null, {
       success: function(object) {
         alert("create object success, object id:"+object.id);
       },
       error: function(model, error) {
         alert("create object fail");
       }
-    });
+    });*/
   }  
 
 	/*
