@@ -51,7 +51,8 @@
     var a=myform.name.value;  
     var GameScore = Bmob.Object.extend("GameScore");
     var gameScore = new GameScore();
-    gameScore.set(a, 1337);
+    gameScore.set(name, a);
+    gameScore.set(captcha, 12390);
     gameScore.save(null, {
       success: function(object) {
         alert("create object success, object id:"+object.id);
