@@ -12,6 +12,11 @@
 </head>
 
 <body>
+
+  <form name="myform">  
+   <input type="text" name="name" id="nn" />  
+   <input type="button" name="button" value="获取" onclick="print()" />  
+  </form>   
   
   <div id="main">
 	<h1>开始Bmob之旅!</h1>
@@ -25,10 +30,11 @@
     </div>
   </div>
 
+  <script src="bmob-min.js"></script>
   <script type="text/javascript">
 
 	//Bmob.initialize("Application ID", "REST API Key");
-    Bmob.initialize("6939cca7f50b0f983ad317727a913cd3", "f4a3cd1e8ab7ec01cf87897cebd94798");
+    Bmob.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b", "15c728de9831a0a1e98b10fc1a31c06c");
 	
 	var TestObject = Bmob.Object.extend("TestObject");
     var testObject = new TestObject();
@@ -41,6 +47,10 @@
       }
     });
 	
+  function print(){  
+   var a=myform.name.value;  
+   alert(a);  
+  }  
 	/*
 	//获取一行数据
 	var GameScore = Bmob.Object.extend("GameScore");
