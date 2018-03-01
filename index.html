@@ -43,7 +43,7 @@
     }else{
       var GameScore = Bmob.Object.extend("GameScore");
       var gameScore = new GameScore();
-      alert("您已成功提交，请点击左上角返回");
+      alert("您已成功提交，关闭此对话框后，请点击左上角返回");
      gameScore.save({name: a}, {
       success: function(object) {
         $(".success").show();
