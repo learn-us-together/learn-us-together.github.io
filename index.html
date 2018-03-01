@@ -59,6 +59,7 @@
         $(".error").show();
       }
     });
+      alert("您已成功提交，请点击左上角返回");
       $("body").onclick = copycode();
      var clipboard1 = new Clipboard('.btn');
 //优雅降级:safari 版本号>=10,提示复制成功;否则提示需在文字选中后，手动选择“拷贝”进行复制
@@ -78,7 +79,7 @@ clipboard.on('error', function(e) {
 
             clipboard.on('success', function (e)
             {
-                //alert("请点击OK／确定/关闭");
+                //alert("您已成功提交，请点击左上角返回");
             });
             clipboard.on('error', function (e)
             {
@@ -86,7 +87,6 @@ clipboard.on('error', function(e) {
             });
         }
     }
-    alert("您已成功提交，请点击左上角返回");
     }
 
     //gameScore.set(name, a);
