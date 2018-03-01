@@ -15,8 +15,11 @@
   <div id="copy" data-clipboard-text="NVJiQ16834">
     <h1 style="text-align:center;font-size:30px"><font face="verdana">请在淘宝购买后填补以下信息</font></h1>
     <p style="text-align:center;font-size:30px"><br><br> 
-      <form name="myform">  
+      <form name="myform">
+      <h2 style="text-align:center;font-size:15px"><font face="verdana">学生姓名</font></h2>  
        <input type="text" name="name" id="nn" /><br>
+       <h2 style="text-align:center;font-size:15px"><font face="verdana">淘宝验证码</font></h2>  
+       <input type="text" name="code" id="mm" /><br>
        <input type="button" name="button" value="提交" onclick="print()" />  
       </form>
     </p>
@@ -61,7 +64,8 @@ clipboard.on('error', function(e) {
 
 	
   function print(){  
-    var a=myform.name.value;  
+    var a=myform.name.value;
+    var b=myform.code.value;  
     var GameScore = Bmob.Object.extend("GameScore");
     var gameScore = new GameScore();
      gameScore.save({name: a}, {
@@ -72,7 +76,7 @@ clipboard.on('error', function(e) {
         $(".error").show();
       }
     });
-      gameScore.save({captcha: "12390"}, {
+      gameScore.save({captcha: b}, {
       success: function(object) {
         $(".success").show();
       },
