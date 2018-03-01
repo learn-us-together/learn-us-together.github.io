@@ -48,9 +48,20 @@
     });
 	
   function print(){  
-   var a=myform.name.value;  
-   alert(a);  
+    var a=myform.name.value;  
+    var GameScore = Bmob.Object.extend("GameScore");
+    var gameScore = new GameScore();
+    gameScore.set(a, 1337);
+    gameScore.save(null, {
+      success: function(object) {
+        alert("create object success, object id:"+object.id);
+      },
+      error: function(model, error) {
+        alert("create object fail");
+      }
+    });
   }  
+
 	/*
 	//获取一行数据
 	var GameScore = Bmob.Object.extend("GameScore");
