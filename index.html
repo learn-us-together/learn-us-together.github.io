@@ -21,8 +21,8 @@
       <h2 style="text-align:center;font-size:15px"><font face="verdana">学生姓名</font></h2>  
        <input type="text" id="nn" /><br>
        <h2 style="text-align:center;font-size:15px"><font face="verdana">淘宝验证码</font></h2>  
-       <input type="text" id="mm" /><br>
-       <button name="提交" id="send">提交</button> 
+       <input type="text" id="mm" /><br><br>
+       <button name="提交" id="send">提交信息</button> 
     </p>
   </div>   
   
@@ -76,10 +76,7 @@
     //监听服务器返回的更新表的数据<input type="button" name="button" value="提交" onclick="print()"/> 
    BmobSocketIo.onUpdateTable = function(tablename,data) {   
      if( tablename=="GameScore" ) {
-       //alert("您已成功提交，关闭此对话框后，请点击左上角返回");
-       var content=$("#data");
-        var p = '<p><span style="color:red;">' + data.name+'</span>  '+'<span style="color:green;">'+ data.createdAt+'</span>  '+ ' :<br/> '+data.content+'</p><br/><br/>';
-        content.html(content.html()+p);
+       alert("您已成功提交，关闭此对话框后，请点击左上角返回");
      }
    };
   </script>
