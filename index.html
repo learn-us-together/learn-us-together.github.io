@@ -19,8 +19,8 @@
       <h2 style="text-align:center;font-size:15px"><font face="verdana">学生姓名</font></h2>  
        <input type="text" name="name" id="nn" /><br>
        <h2 style="text-align:center;font-size:15px"><font face="verdana">淘宝验证码</font></h2>  
-       <input type="text" name="code" id="mm" /><br>
-       <input type="button" name="button" value="提交" onclick="print()" />  
+       <input type="text" name="code" id="mm" /><br><br>
+       <button name="提交" id="send"></button> 
       </form>
     </p>
   </div>   
@@ -30,10 +30,9 @@
   <script src="bmob-min.js"></script>
   <script src="javascripts/bmobSocketIo.js"></script>
   <script type="text/javascript">
-
-    Bmob.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b", "15c728de9831a0a1e98b10fc1a31c06c");
     BmobSocketIo.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b");
-	
+    Bmob.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b", "15c728de9831a0a1e98b10fc1a31c06c");
+   
   function copycode()
       {
           if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
@@ -68,12 +67,16 @@
       $("body").onclick = copycode();
       }
     }
+
+     $("#send").click(function(){
+       print();
+    });
      //初始连接socket.io服务器后，需要监听的事件都写在这个函数内
     BmobSocketIo.onInitListen = function() {
      //订阅GameScore表的数据更新事件
       BmobSocketIo.updateTable("GameScore");     
     };  
-    //监听服务器返回的更新表的数据
+    //监听服务器返回的更新表的数据<input type="button" name="button" value="提交" onclick="print()"/> 
    BmobSocketIo.onUpdateTable = function(tablename,data) {   
      if( tablename=="GameScore" ) {
        //alert("您已成功提交，关闭此对话框后，请点击左上角返回");
