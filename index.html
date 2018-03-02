@@ -7,28 +7,25 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/styles.css">
-  <script type="text/javascript" src="jquery.min.js"></script>
-  <script type="text/javascript" src="bmob.js"></script>
+   <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cat.net/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+  <script src="bmob-min.js"></script>
+  <script type="text/javascript" src="bmobSocketIo.js"></script>
 </head>
 
 <body>
+  <div id="data"></div>
   <div id="copy" data-clipboard-text="NVJiQ16834">
     <h1 style="text-align:center;font-size:30px"><font face="verdana">请在淘宝购买后填补以下信息</font></h1>
     <p style="text-align:center;font-size:30px"><br> 
-      <form name="myform">
       <h2 style="text-align:center;font-size:15px"><font face="verdana">学生姓名</font></h2>  
-       <input type="text" name="name" id="nn" /><br>
+       <input type="text" id="nn" /><br>
        <h2 style="text-align:center;font-size:15px"><font face="verdana">淘宝验证码</font></h2>  
-       <input type="text" name="code" id="mm" /><br>
-      </form>
+       <input type="text" id="mm" /><br>
        <button name="提交" id="send">提交</button> 
     </p>
   </div>   
   
-  <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cat.net/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
-  <script src="bmob-min.js"></script>
-  <script src="javascripts/bmobSocketIo.js"></script>
   <script type="text/javascript">
     BmobSocketIo.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b");
     Bmob.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b", "15c728de9831a0a1e98b10fc1a31c06c");
@@ -49,8 +46,8 @@
       }
 
   function print(){
-    var a=myform.name.value;
-    var b=myform.code.value;
+    var a=$("#nn").val();
+    var b=$("#mm").val();
     if (a.length == 0 || b.length == 0){ 
         alert("请输入学生姓名和验证码");
     }else{
