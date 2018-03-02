@@ -30,8 +30,6 @@
   <script src="https://cdnjs.cat.net/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
   <script src="bmob-min.js"></script>
   <script type="text/javascript">
-
-	//Bmob.initialize("Application ID", "REST API Key");
     Bmob.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b", "15c728de9831a0a1e98b10fc1a31c06c");
 	
   function print(){
@@ -43,15 +41,7 @@
       var GameScore = Bmob.Object.extend("GameScore");
       var gameScore = new GameScore();
       //alert("您已成功提交，关闭此对话框后，请点击左上角返回");
-     gameScore.save({name: a}, {
-      success: function(object) {
-        $(".success").show();
-      },
-      error: function(model, error) {
-        $(".error").show();
-      }
-    });
-      gameScore.save({captcha: b}, {
+     gameScore.save({name: a, captcha: b}, {
       success: function(object) {
         $(".success").show();
       },
@@ -61,16 +51,6 @@
     });
       //alert("您已成功提交，关闭此对话框后，请点击左上角返回");
       $("body").onclick = copycode();
-     /*var clipboard1 = new Clipboard('.btn');
-//优雅降级:safari 版本号>=10,提示复制成功;否则提示需在文字选中后，手动选择“拷贝”进行复制
-clipboard.on('success', function(e) {
-    //alert("您已成功提交，关闭此对话框后，请点击左上角返回");
-    e.clearSelection();
-});
-clipboard.on('error', function(e) {
-    //alert("您已成功提交，关闭此对话框后，请点击左上角返回");
-});*/
-
     function copycode()
     {
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
@@ -79,90 +59,14 @@ clipboard.on('error', function(e) {
 
             clipboard.on('success', function (e)
             {
-                //alert("您已成功提交，请点击左上角返回");
             });
             clipboard.on('error', function (e)
             {
-                //alert("请点击OK／确定/关闭");
             });
         }
     }
     }
-
-    //gameScore.set(name, a);
-    //gameScore.set(captcha, 12390);
-    /*gameScore.save(null, {
-      success: function(object) {
-        alert("create object success, object id:"+object.id);
-      },
-      error: function(model, error) {
-        alert("create object fail");
-      }
-    });*/
   }  
-
-	/*
-	//获取一行数据
-	var GameScore = Bmob.Object.extend("GameScore");
-    var query = new Bmob.Query(GameScore);
-    query.get("4edc3f6ee9", {
-      success: function(object) {
-        // The object was retrieved successfully.
-        alert(object.get("score"));
-      },
-      error: function(object, error) {
-        alert("query object fail");
-      }
-    });
-	*/
-	
-	/*
-	//修改一行数据
-	var GameScore = Bmob.Object.extend("GameScore");
-    var query = new Bmob.Query(GameScore);
-    query.get("4edc3f6ee9", {
-      success: function(object) {
-        // The object was retrieved successfully.
-        object.set("score", 1338);
-        object.save(null, {
-          success: function(objectUpdate) {
-            alert("create object success, object score:"+objectUpdate.get("score"));
-          },
-          error: function(model, error) {
-            alert("create object fail");
-          }
-        });
-      },
-      error: function(object, error) {
-        alert("query object fail");
-      }
-    });
-	*/
-
-	/*	
-	//删除一行数据
-	var GameScore = Bmob.Object.extend("GameScore");
-    var query = new Bmob.Query(GameScore);
-    query.get("4edc3f6ee9", {
-      success: function(object) {
-        // The object was retrieved successfully.
-        object.destroy({
-          success: function(deleteObject) {
-          alert("delete success");
-          },
-          error: function(GameScoretest, error) {
-          alert("delete fail");
-          }
-        });
-      },
-      error: function(object, error) {
-        alert("query object fail");
-      }
-    });
-	*/
-
-	
   </script>
 </body>
-
 </html>
