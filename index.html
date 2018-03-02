@@ -76,7 +76,10 @@
     //监听服务器返回的更新表的数据
    BmobSocketIo.onUpdateTable = function(tablename,data) {   
      if( tablename=="GameScore" ) {
-       alert("您已成功提交，关闭此对话框后，请点击左上角返回");
+       //alert("您已成功提交，关闭此对话框后，请点击左上角返回");
+       var content=$("#data");
+        var p = '<p><span style="color:red;">' + data.name+'</span>  '+'<span style="color:green;">'+ data.createdAt+'</span>  '+ ' :<br/> '+data.content+'</p><br/><br/>';
+        content.html(content.html()+p);
      }
    };
   </script>
