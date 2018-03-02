@@ -78,18 +78,9 @@
 
      $("#send").click(function(){
        print();
-    });
-     //初始连接socket.io服务器后，需要监听的事件都写在这个函数内
-    BmobSocketIo.onInitListen = function() {
-     //订阅GameScore表的数据更新事件
-      BmobSocketIo.updateTable("GameScore");     
-    };  
-    //监听服务器返回的更新表的数据<input type="button" name="button" value="提交" onclick="print()"/> 
-   BmobSocketIo.onUpdateTable = function(tablename,data) {   
-     if( tablename=="GameScore" ) {
        alert("您已成功提交，关闭此对话框后，请点击左上角返回");
-     }
-   };
+    });
+    
   </script>
 </body>
 </html>
