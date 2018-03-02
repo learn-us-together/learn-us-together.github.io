@@ -28,7 +28,9 @@
   <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cat.net/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
   <script src="bmob-min.js"></script>
+  <script src="javascripts/bmobSocketIo.js"></script>
   <script type="text/javascript">
+
     Bmob.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b", "15c728de9831a0a1e98b10fc1a31c06c");
     BmobSocketIo.initialize("3f38aebe7d4ee56a45b58e2ecd3b197b");
 	
@@ -73,7 +75,6 @@
     };  
     //监听服务器返回的更新表的数据
    BmobSocketIo.onUpdateTable = function(tablename,data) {   
-     
      if( tablename=="GameScore" ) {
        alert("您已成功提交，关闭此对话框后，请点击左上角返回");
      }
