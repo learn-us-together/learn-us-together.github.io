@@ -25,7 +25,6 @@
     </p>
   </div>   
   
-
   <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cat.net/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
   <script src="bmob-min.js"></script>
@@ -40,7 +39,6 @@
     }else{
       var GameScore = Bmob.Object.extend("GameScore");
       var gameScore = new GameScore();
-      //alert("您已成功提交，关闭此对话框后，请点击左上角返回");
      gameScore.save({name: a, captcha: b}, {
       success: function(object) {
         $(".success").show();
@@ -49,24 +47,24 @@
         $(".error").show();
       }
     });
-      //alert("您已成功提交，关闭此对话框后，请点击左上角返回");
       $("body").onclick = copycode();
-    function copycode()
-    {
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
-        {
-            var clipboard = new Clipboard('#copy');
+      function copycode()
+      {
+          if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+          {
+              var clipboard = new Clipboard('#copy');
 
-            clipboard.on('success', function (e)
-            {
-            });
-            clipboard.on('error', function (e)
-            {
-            });
-        }
-    }
-    }
-  }  
+              clipboard.on('success', function (e)
+              {
+              });
+              clipboard.on('error', function (e)
+              {
+              });
+          }
+      }
+      alert("您已成功提交，关闭此对话框后，请点击左上角返回");
+      }
+    }  
   </script>
 </body>
 </html>
